@@ -157,6 +157,8 @@ class ClassbaOP:
         page=0
         pageCount=10
         myPagesCount=500
+        main_path='C:\\SquirrelAiScript\\OutPut\\'
+        print('将存储在目录'+mmain_path)
         while(page<pageCount):
             if page%myPagesCount==0:
                 try:
@@ -164,7 +166,7 @@ class ClassbaOP:
                     SquirrelQueLib.close()
                 except:
                     pass
-                SquirrelQueLib=open('D:\\输出\\'+str(page/myPagesCount)+'.json','w',1)
+                SquirrelQueLib=open(main_path+str(page/myPagesCount)+'.json','w',1)
                 SquirrelQueLib.write('{"questionlist":[')
                 isFirstQuestion=True
             payLoad={'subject_id':'2','page':page+1,'token':self.Token}
